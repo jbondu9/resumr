@@ -1,0 +1,28 @@
+{
+  "overrides": [
+    {
+      "files": ".eslintrc.cjs",
+      "options": { "parser": "babel" }
+    },
+    {
+      "files": ["vite.config.ts", "src/**/*.{ts,tsx}"],
+      "options": { "parser": "babel-ts" }
+    },
+    {
+      "files": "src/**/*.css",
+      "options": { "parser": "css" }
+    },
+    {
+      "files": "index.html",
+      "options": { "parser": "html" }
+    },
+    {
+      "files": [".prettierrc", "*.json"],
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "README.md",
+      "options": { "parser": "markdown" }
+    }
+  ]
+}

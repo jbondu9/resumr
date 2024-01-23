@@ -1,0 +1,15 @@
+name: QA
+
+on: push
+
+jobs:
+  check-code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: yarn install --check-files
+      - name: Prettier
+        run: yarn format
+      - name: ESLint
+        run: yarn lint
