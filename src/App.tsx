@@ -5,15 +5,20 @@ import { ReactElement, useState } from "react";
 import "./App.css";
 
 import Map from "./components/Map.component";
+import MapFilterPanel from "./components/MapFilterPanel.component";
 import MapMarker from "./components/MapMarker.component";
 import MarkerDetails from "./components/MarkerDetails.component";
 import { Markers } from "./constants/Markers.constant";
+import { Skill } from "./enums/Skill.enum";
+import { Tag } from "./enums/Tag.enum";
+import { Filter, FilterKey } from "./types/Filter.type";
 import { MarkerElement } from "./types/MarkerElement.type";
 
 export default function App(): ReactElement {
   const [selectedMarker, setSelectedMarker] = useState<MarkerElement | null>(
     null,
   );
+  const [selectedFilters, setSelectedFilters] = useState<Filter | null>(null);
 
   const handleMarkerClick = (marker: MarkerElement) => {
     setSelectedMarker(marker);
@@ -23,9 +28,42 @@ export default function App(): ReactElement {
     setSelectedMarker(null);
   };
 
+  const handleMenuClick = (filterValue: Skill | Tag, filterKey: FilterKey) => {
+    const newSelectedFilters: Filter = {
+      skills: [],
+      tags: [],
+      ...selectedFilters,
+    };
+
+    const filterArray =
+      filterKey === "skills"
+        ? newSelectedFilters.skills
+        : newSelectedFilters.tags;
+    const index = filterArray.indexOf(filterValue as never);
+
+    if (index >= 0) {
+      filterArray.splice(index, 1);
+    } else {
+      filterArray.push(filterValue as never);
+    }
+
+    setSelectedFilters(newSelectedFilters);
+  };
+
   const markers = (
     <>
-      {Markers.map((marker: MarkerElement) => (
+      {Markers.filter((marker: MarkerElement) => {
+        if (!selectedFilters) return true;
+
+        const tagMatches =
+          !selectedFilters.tags.length ||
+          selectedFilters.tags.includes(marker.tag);
+        const skillMatches =
+          !selectedFilters.skills.length ||
+          selectedFilters.skills.some((s) => marker.skills?.includes(s));
+
+        return tagMatches && skillMatches;
+      }).map((marker: MarkerElement) => (
         <MapMarker
           key={marker.id}
           marker={marker}
@@ -37,6 +75,7 @@ export default function App(): ReactElement {
 
   return (
     <>
+      <MapFilterPanel onClick={handleMenuClick} />
       <Map onClick={handleMapClick}>{markers}</Map>
       {selectedMarker !== null && <MarkerDetails marker={selectedMarker} />}
     </>
