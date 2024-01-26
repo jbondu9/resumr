@@ -134,6 +134,7 @@ export const Markers: MarkerElement[] = [
       "Conducted signal processing exercises for first-year engineering students.",
     startDate: new Date(2019, 8, 1),
     endDate: new Date(2020, 2, 1),
+    skills: [Skill.MATLAB],
     tag: Tag.WORK,
   },
   {
@@ -201,6 +202,7 @@ export const Markers: MarkerElement[] = [
       " in Canada, but I had to give up after two semesters.",
     startDate: new Date(2013, 8, 1),
     endDate: new Date(2019, 8, 1),
+    skills: [Skill.MATLAB],
     tag: Tag.EDUCATION,
   },
   {
@@ -214,6 +216,7 @@ export const Markers: MarkerElement[] = [
       " most was there was the hip-hop association, with which I had a lot of fun.",
     startDate: new Date(2013, 8, 1),
     endDate: new Date(2019, 8, 1),
+    skills: [Skill.MATLAB, Skill.C, Skill.JAVA],
     tag: Tag.EDUCATION,
   },
   {
@@ -226,6 +229,7 @@ export const Markers: MarkerElement[] = [
       " for the selective entrance examination to French engineering schools",
     startDate: new Date(2013, 8, 1),
     endDate: new Date(2015, 5, 1),
+    skills: [Skill.PYTHON],
     tag: Tag.EDUCATION,
   },
   {
