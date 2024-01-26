@@ -9,7 +9,7 @@ export default function MarkerDetails({
   marker: MarkerElement;
 }): ReactElement {
   return (
-    <div>
+    <>
       <h1>{marker.title}</h1>
       {typeof marker.subtitle !== "undefined" && marker.subtitle.length > 0 && (
         <h2>{marker.subtitle}</h2>
@@ -24,6 +24,6 @@ export default function MarkerDetails({
           ))}
         </ul>
       )}
-    </div>
+    </>
   );
 }
