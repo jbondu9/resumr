@@ -6,11 +6,14 @@ import "./App.css";
 
 import Map from "./components/Map.component";
 import MapFilterPanel from "./components/MapFilterPanel.component";
-import MapMarker from "./components/MapMarker.component";
 import MarkerDetails from "./components/MarkerDetails.component";
+import MarkerList from "./components/MarkerList.component";
+
 import { Markers } from "./constants/Markers.constant";
+
 import { Skill } from "./enums/Skill.enum";
 import { Tag } from "./enums/Tag.enum";
+
 import { Filter, FilterKey } from "./types/Filter.type";
 import { MarkerElement } from "./types/MarkerElement.type";
 
@@ -50,33 +53,24 @@ export default function App(): ReactElement {
     setSelectedFilters(newSelectedFilters);
   };
 
-  const markers = (
-    <>
-      {Markers.filter((marker: MarkerElement) => {
-        if (!selectedFilters) return true;
+  const markers = Markers.filter((marker: MarkerElement) => {
+    if (!selectedFilters) return true;
 
-        const tagMatches =
-          !selectedFilters.tags.length ||
-          selectedFilters.tags.includes(marker.tag);
-        const skillMatches =
-          !selectedFilters.skills.length ||
-          selectedFilters.skills.some((s) => marker.skills?.includes(s));
+    const tagMatches =
+      !selectedFilters.tags.length || selectedFilters.tags.includes(marker.tag);
+    const skillMatches =
+      !selectedFilters.skills.length ||
+      selectedFilters.skills.some((s) => marker.skills?.includes(s));
 
-        return tagMatches && skillMatches;
-      }).map((marker: MarkerElement) => (
-        <MapMarker
-          key={marker.id}
-          marker={marker}
-          onClick={handleMarkerClick}
-        />
-      ))}
-    </>
-  );
+    return tagMatches && skillMatches;
+  });
 
   return (
     <>
       <MapFilterPanel onClick={handleMenuClick} />
-      <Map onClick={handleMapClick}>{markers}</Map>
+      <Map onClick={handleMapClick}>
+        <MarkerList markers={markers} onClick={handleMarkerClick} />
+      </Map>
       {selectedMarker !== null && <MarkerDetails marker={selectedMarker} />}
     </>
   );
