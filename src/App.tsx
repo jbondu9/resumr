@@ -4,8 +4,8 @@ import { ReactElement, useState } from "react";
 
 import "./App.css";
 
+import FilterPanel from "./components/FilterPanel.component";
 import Map from "./components/Map.component";
-import MapFilterPanel from "./components/MapFilterPanel.component";
 import MarkerDetails from "./components/MarkerDetails.component";
 import MarkerList from "./components/MarkerList.component";
 
@@ -66,12 +66,20 @@ export default function App(): ReactElement {
   });
 
   return (
-    <>
-      <MapFilterPanel onClick={handleMenuClick} />
-      <Map onClick={handleMapClick}>
-        <MarkerList markers={markers} onClick={handleMarkerClick} />
-      </Map>
-      {selectedMarker !== null && <MarkerDetails marker={selectedMarker} />}
-    </>
+    <main>
+      <section>
+        <FilterPanel onClick={handleMenuClick} />
+      </section>
+      <section>
+        <Map onClick={handleMapClick}>
+          <MarkerList markers={markers} onClick={handleMarkerClick} />
+        </Map>
+      </section>
+      {selectedMarker !== null && (
+        <section>
+          <MarkerDetails marker={selectedMarker} />
+        </section>
+      )}
+    </main>
   );
 }

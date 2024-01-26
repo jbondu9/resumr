@@ -1,10 +1,13 @@
 import { ReactElement } from "react";
 
+import { Markers } from "../constants/Markers.constant";
+
 import { Skill } from "../enums/Skill.enum";
 import { Tag } from "../enums/Tag.enum";
+
 import { FilterKey } from "../types/Filter.type";
 
-export default function MapFilterPanel({
+export default function FilterPanel({
   onClick,
 }: {
   onClick: (filterValue: Skill | Tag, filterKey: FilterKey) => void;
@@ -21,14 +24,10 @@ export default function MapFilterPanel({
   }
 
   return (
-    <div>
+    <>
+      <h1>{Markers.length} items in total</h1>
       <div>
-        <span></span>
-      </div>
-      <div>
-        <div>
-          <span>Tags ({tags.length})</span>
-        </div>
+        <h2>Tags ({tags.length})</h2>
         <ul>
           {tags.map((tag: string) => (
             <li key={tag.toLowerCase()}>
@@ -40,9 +39,7 @@ export default function MapFilterPanel({
         </ul>
       </div>
       <div>
-        <div>
-          <span>Skills ({skills.length})</span>
-        </div>
+        <h2>Skills ({skills.length})</h2>
         <ul>
           {skills.map((skill: string) => (
             <li key={skill.toLowerCase()}>
@@ -56,6 +53,6 @@ export default function MapFilterPanel({
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
 }
