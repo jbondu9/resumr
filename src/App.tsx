@@ -16,6 +16,7 @@ import { Tag } from "./enums/Tag.enum";
 
 import { Filter, FilterKey } from "./types/Filter.type";
 import { MarkerElement } from "./types/MarkerElement.type";
+import AboutPanel from "./components/AboutPanel.component";
 
 export default function App(): ReactElement {
   const [selectedMarker, setSelectedMarker] = useState<MarkerElement | null>(
@@ -73,6 +74,9 @@ export default function App(): ReactElement {
     <main>
       <section>
         <FilterPanel onClick={handleMenuClick} />
+      </section>
+      <section>
+        <AboutPanel />
       </section>
       <section>
         <Map onClick={handleMapClick}>
