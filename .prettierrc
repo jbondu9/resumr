@@ -24,5 +24,6 @@
       "files": "README.md",
       "options": { "parser": "markdown" }
     }
-  ]
+  ],
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
