@@ -9,20 +9,8 @@
       "options": { "parser": "babel-ts" }
     },
     {
-      "files": "src/**/*.css",
-      "options": { "parser": "css" }
-    },
-    {
-      "files": "index.html",
-      "options": { "parser": "html" }
-    },
-    {
-      "files": [".prettierrc", "*.json"],
+      "files": [".prettierrc"],
       "options": { "parser": "json" }
-    },
-    {
-      "files": "README.md",
-      "options": { "parser": "markdown" }
     }
   ],
   "plugins": ["prettier-plugin-tailwindcss"]
