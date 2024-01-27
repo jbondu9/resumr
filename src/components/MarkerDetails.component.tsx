@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import { Skill } from "../enums/Skill.enum";
+import { Tag } from "../enums/Tag.enum";
 import { MarkerElement } from "../types/MarkerElement.type";
 
 export default function MarkerDetails({
@@ -15,11 +15,11 @@ export default function MarkerDetails({
         <h2>{marker.subtitle}</h2>
       )}
       <p>{marker.description}</p>
-      {typeof marker.skills !== "undefined" && marker.skills.length > 0 && (
+      {typeof marker.tags !== "undefined" && marker.tags.length > 0 && (
         <ul>
-          {marker.skills.map((skill: Skill) => (
-            <li key={skill.toLowerCase() + "-" + marker.id}>
-              {skill.toLocaleLowerCase()}
+          {marker.tags.map((tag: Tag) => (
+            <li key={tag.toLowerCase() + "-" + marker.id}>
+              {tag.toLocaleLowerCase()}
             </li>
           ))}
         </ul>

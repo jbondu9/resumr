@@ -1,8 +1,8 @@
-import { Skill } from "../enums/Skill.enum";
+import { Category } from "../enums/Category.enum";
 import { Tag } from "../enums/Tag.enum";
 
 export type Filter = {
-  skills: Skill[];
+  categories: Category[];
   tags: Tag[];
 };
 

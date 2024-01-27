@@ -11,7 +11,7 @@ import MarkerList from "./components/MarkerList.component";
 
 import { Markers } from "./constants/Markers.constant";
 
-import { Skill } from "./enums/Skill.enum";
+import { Category } from "./enums/Category.enum";
 import { Tag } from "./enums/Tag.enum";
 
 import { Filter, FilterKey } from "./types/Filter.type";
@@ -31,17 +31,20 @@ export default function App(): ReactElement {
     setSelectedMarker(null);
   };
 
-  const handleMenuClick = (filterValue: Skill | Tag, filterKey: FilterKey) => {
+  const handleMenuClick = (
+    filterValue: Tag | Category,
+    filterKey: FilterKey,
+  ) => {
     const newSelectedFilters: Filter = {
-      skills: [],
+      categories: [],
       tags: [],
       ...selectedFilters,
     };
 
     const filterArray =
-      filterKey === "skills"
-        ? newSelectedFilters.skills
-        : newSelectedFilters.tags;
+      filterKey === "tags"
+        ? newSelectedFilters.tags
+        : newSelectedFilters.categories;
     const index = filterArray.indexOf(filterValue as never);
 
     if (index >= 0) {
@@ -56,13 +59,14 @@ export default function App(): ReactElement {
   const markers = Markers.filter((marker: MarkerElement) => {
     if (!selectedFilters) return true;
 
+    const categoryMatches =
+      !selectedFilters.categories.length ||
+      selectedFilters.categories.includes(marker.category);
     const tagMatches =
-      !selectedFilters.tags.length || selectedFilters.tags.includes(marker.tag);
-    const skillMatches =
-      !selectedFilters.skills.length ||
-      selectedFilters.skills.some((s) => marker.skills?.includes(s));
+      !selectedFilters.tags.length ||
+      selectedFilters.tags.some((t) => marker.tags?.includes(t));
 
-    return tagMatches && skillMatches;
+    return categoryMatches && tagMatches;
   });
 
   return (
