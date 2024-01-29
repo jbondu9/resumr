@@ -71,16 +71,14 @@ export default function App(): ReactElement {
   });
 
   return (
-    <main>
-      <section>
-        <FilterPanel onClick={handleMenuClick} />
-      </section>
-      <section>
-        <AboutPanel />
-      </section>
-      <section>
+    <main className="max-h-screen w-screen overflow-hidden">
+      <section className="w-full">
         <Map onClick={handleMapClick}>
-          <MarkerList markers={markers} onClick={handleMarkerClick} />
+          <>
+            <MarkerList markers={markers} onClick={handleMarkerClick} />
+            <FilterPanel onClick={handleMenuClick} />
+            <AboutPanel />
+          </>
         </Map>
       </section>
       {selectedMarker !== null && (
