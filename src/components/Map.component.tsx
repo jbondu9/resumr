@@ -1,23 +1,18 @@
-import { ReactElement } from "react";
-import { MapContainer, TileLayer, useMapEvent } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
-function MapClickHandler({ onClick }: { onClick: () => void }) {
-  useMapEvent("click", () => onClick());
-  return null;
-}
+import { ReactElement } from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 export default function Map({
   children,
-  onClick,
 }: {
   children?: ReactElement;
-  onClick: () => void;
 }): ReactElement {
   return (
     <MapContainer
       center={[46.3408, 2.6033]}
       zoom={5}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
       minZoom={3}
       maxZoom={16}
     >
@@ -26,7 +21,6 @@ export default function Map({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {children}
-      <MapClickHandler onClick={onClick} />
     </MapContainer>
   );
 }

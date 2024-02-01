@@ -1,13 +1,16 @@
 .leaflet-container {
-  height: 90vh;
+  height: 100%;
+  width: 100%;
 }
 
 .leaflet-control-zoom {
   display: none;
 }
 
-.leaflet-top.leaflet-left .leaflet-control,
-.leaflet-top.leaflet-right .leaflet-control {
-  height: calc(100% - 10px);
-  width: calc(100% - 10px);
+#about-control {
+  transform: translateX(calc(-100% + 1px));
+}
+
+#filter-control {
+  transform: translateX(calc(100% - 1px));
 }

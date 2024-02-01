@@ -1,90 +1,37 @@
-import "leaflet/dist/leaflet.css";
-
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 
 import "./App.css";
 
-import FilterPanel from "./components/FilterPanel.component";
+import About from "./components/About.component";
+import Filters from "./components/Filters.component";
 import Map from "./components/Map.component";
 import MarkerDetails from "./components/MarkerDetails.component";
 import MarkerList from "./components/MarkerList.component";
 
 import { Markers } from "./constants/Markers.constant";
-
-import { Category } from "./enums/Category.enum";
-import { Tag } from "./enums/Tag.enum";
-
-import { Filter, FilterKey } from "./types/Filter.type";
 import { MarkerElement } from "./types/MarkerElement.type";
-import AboutPanel from "./components/AboutPanel.component";
 
-export default function App(): ReactElement {
-  const [selectedMarker, setSelectedMarker] = useState<MarkerElement | null>(
-    null,
-  );
-  const [selectedFilters, setSelectedFilters] = useState<Filter | null>(null);
-
-  const handleMarkerClick = (marker: MarkerElement) => {
-    setSelectedMarker(marker);
-  };
-
-  const handleMapClick = () => {
-    setSelectedMarker(null);
-  };
-
-  const handleMenuClick = (
-    filterValue: Tag | Category,
-    filterKey: FilterKey,
-  ) => {
-    const newSelectedFilters: Filter = {
-      categories: [],
-      tags: [],
-      ...selectedFilters,
-    };
-
-    const filterArray =
-      filterKey === "tags"
-        ? newSelectedFilters.tags
-        : newSelectedFilters.categories;
-    const index = filterArray.indexOf(filterValue as never);
-
-    if (index >= 0) {
-      filterArray.splice(index, 1);
-    } else {
-      filterArray.push(filterValue as never);
-    }
-
-    setSelectedFilters(newSelectedFilters);
-  };
-
-  const markers = Markers.filter((marker: MarkerElement) => {
-    if (!selectedFilters) return true;
-
-    const categoryMatches =
-      !selectedFilters.categories.length ||
-      selectedFilters.categories.includes(marker.category);
-    const tagMatches =
-      !selectedFilters.tags.length ||
-      selectedFilters.tags.some((t) => marker.tags?.includes(t));
-
-    return categoryMatches && tagMatches;
-  });
+export default function App() {
+  const [markers, setMarkers] = useState(Markers);
+  const [marker, setMarker] = useState<MarkerElement | null>(null);
 
   return (
-    <main className="max-h-screen w-screen overflow-hidden">
-      <section className="w-full">
-        <Map onClick={handleMapClick}>
-          <>
-            <MarkerList markers={markers} onClick={handleMarkerClick} />
-            <FilterPanel onClick={handleMenuClick} />
-            <AboutPanel />
-          </>
+    <main className="relative h-screen w-screen overflow-hidden">
+      <div className="absolute left-0 top-0 z-[1000] w-3/5 -translate-x-full md:w-72 md:translate-x-0">
+        <Filters />
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 top-0">
+        <Map>
+          <MarkerList markers={markers} />
         </Map>
-      </section>
-      {selectedMarker !== null && (
-        <section>
-          <MarkerDetails marker={selectedMarker} />
-        </section>
+      </div>
+      <div className="absolute right-0 top-0 z-[1000] w-3/5 translate-x-full md:w-72">
+        <About />
+      </div>
+      {marker && (
+        <div className="absolute bottom-0 right-0 z-[1000] w-full translate-y-2/3 md:top-0 md:w-72">
+          <MarkerDetails marker={marker} />
+        </div>
       )}
     </main>
   );
