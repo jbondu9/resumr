@@ -12,5 +12,5 @@ export type MarkerElement = {
   description: string;
   startDate?: Date;
   endDate?: Date;
-  tags?: Tag[];
+  tags: Tag[];
 };

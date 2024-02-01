@@ -122,6 +122,7 @@ export const Career: MarkerElement[] = [
       "It's all in the name. A part-time job to pay for my studies in Canada.",
     startDate: new Date(2017, 11, 1),
     endDate: new Date(2018, 3, 1),
+    tags: [],
   },
   {
     id: "28e188fc-5cf2-452b-a0c2-9e9dbd57bb54",

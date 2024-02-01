@@ -53,5 +53,6 @@ export const Education: MarkerElement[] = [
       "I graduated in sciences with honors and had pretty good times with friends.",
     startDate: new Date(2010, 8, 1),
     endDate: new Date(2013, 5, 1),
+    tags: [],
   },
 ];
