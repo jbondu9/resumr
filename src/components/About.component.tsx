@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Dispatch, ReactElement } from "react";
 
+import imgUrl from "../assets/images/profile-pic.jpg";
+
 import { Panel } from "../enums/Panel.enum";
 
 export default function About({
@@ -40,11 +42,7 @@ export default function About({
           <div className="flex h-full flex-col overflow-hidden">
             <div className="mb-4 flex shrink-0 flex-row items-center">
               <div className="mr-2 flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full shadow">
-                <img
-                  src="src/assets/images/profile-pic.jpg"
-                  alt="Me"
-                  className="h-auto w-full"
-                />
+                <img src={imgUrl} alt="Me" className="h-auto w-full" />
               </div>
               <div className="flex flex-col font-bold">
                 <h1 className="text-base leading-none">Jimmy Bondu</h1>
