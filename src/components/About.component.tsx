@@ -58,18 +58,18 @@ export default function About({
               <div className="mr-3 space-y-2 italic">
                 <p>Hi!</p>
                 <p>
-                  My name is Jimmy and I'm a fullstack web and data developer.
-                  Keen on building impactful software that empower people, I'm
+                  My name is Jimmy and I'm a fullstack web and data engineer.
+                  Keen on building impactful softwares that empower people, I'm
                   looking for a new opportunity where high tech could serve
                   people who work day-to-day to change our society.
                 </p>
                 <p>
                   If you're looking for someone motivated, eager to learn and
-                  committed to his work, don't hesitate to contact me to see if
-                  can work together.
+                  committed to his work, feel free to contact me to see if can
+                  work together.
                 </p>
                 <p>
-                  On top of that, I'm a runner, an hiker and a rock climber
+                  On top of that, I'm a runner, a hiker and a rock climber
                   addict, and I love to eat delicious food and share my best
                   spots!
                 </p>

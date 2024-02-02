@@ -12,7 +12,7 @@ export const Education: MarkerElement[] = [
     description:
       "I wanted to try to get a double degree from a University" +
       " in Canada, but I had to give up after two semesters.",
-    startDate: new Date(2013, 8, 1),
+    startDate: new Date(2018, 8, 1),
     endDate: new Date(2019, 8, 1),
     tags: [Tag.MATLAB],
   },
@@ -26,7 +26,7 @@ export const Education: MarkerElement[] = [
       "I graduated with honors in telecommunications engineering, with a " +
       "specialization in signal and image processing. But what I enjoyed the" +
       " most was there was the hip-hop association, with which I had a lot of fun.",
-    startDate: new Date(2013, 8, 1),
+    startDate: new Date(2015, 8, 1),
     endDate: new Date(2019, 8, 1),
     tags: [Tag.MATLAB, Tag.C, Tag.JAVA],
   },
