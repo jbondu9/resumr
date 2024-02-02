@@ -1,6 +1,12 @@
 name: QA
 
-on: push
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: "qa"
+  cancel-in-progress: true
 
 jobs:
   check-code-quality:
