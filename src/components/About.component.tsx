@@ -1,17 +1,39 @@
 import { faEnvelope, faUser } from "@fortawesome/free-regular-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { ReactElement } from "react";
+import { Dispatch, ReactElement } from "react";
 
-export default function About(): ReactElement {
+import { Panel } from "../enums/Panel.enum";
+
+export default function About({
+  active,
+  dispatcher,
+}: {
+  active: boolean;
+  dispatcher: {
+    dispatchPanels: Dispatch<Panel>;
+    setMarker: (marker: null) => void;
+  };
+}): ReactElement {
+  const { dispatchPanels, setMarker } = dispatcher;
+
   return (
     <div className="relative">
       <button
         type="button"
         id="about-control"
         className="absolute left-0 top-5 rounded-l-full border-y border-l border-r border-y-amber-400 border-l-amber-400 border-r-white bg-white py-1 pl-2 pr-1 text-amber-400"
+        onClick={() => {
+          dispatchPanels(Panel.ABOUT);
+          setMarker(null);
+        }}
       >
-        <FontAwesomeIcon icon={faUser} className="size-5" />
+        {active ? (
+          <FontAwesomeIcon icon={faXmark} className="size-5" />
+        ) : (
+          <FontAwesomeIcon icon={faUser} className="size-5" />
+        )}
       </button>
       <div className="h-screen border-l border-l-amber-400">
         <div className="h-full bg-white py-3 pl-3">
@@ -42,12 +64,6 @@ export default function About(): ReactElement {
                   Keen on building impactful software that empower people, I'm
                   looking for a new opportunity where high tech could serve
                   people who work day-to-day to change our society.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus ac augue vitae est commodo ultricies eget nec tortor.
-                  Nam eu pulvinar mi. Pellentesque rutrum lectus sit amet ligula
-                  hendrerit, id nec.
                 </p>
                 <p>
                   If you're looking for someone motivated, eager to learn and

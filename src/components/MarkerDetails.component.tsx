@@ -33,7 +33,7 @@ export default function MarkerDetails({
     <div className="h-screen overflow-hidden rounded-xl shadow-md md:rounded-none md:border-l md:border-l-amber-400">
       <div className="h-full bg-white p-3 md:py-3 md:pl-3 md:pr-0">
         <div className="flex h-full flex-col overflow-hidden">
-          <div className="items-top flex shrink-0 flex-row md:mr-3">
+          <div className="flex shrink-0 flex-row items-center md:mr-3">
             {customHeader(marker.category)}
             <div className="flex flex-col font-bold">
               <h1 className="text-base leading-none">{marker.title}</h1>

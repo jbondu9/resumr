@@ -6,19 +6,28 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { DivIcon, divIcon } from "leaflet";
-import { ReactElement } from "react";
+import { Dispatch, ReactElement } from "react";
 import { renderToString } from "react-dom/server";
 import { Marker } from "react-leaflet";
 
 import { Category } from "../enums/Category.enum";
+import { Panel } from "../enums/Panel.enum";
+
 import { CustomIcon } from "../types/CustomIcon.type";
 import { MarkerElement } from "../types/MarkerElement.type";
 
 export default function MarkerList({
   markers,
+  onClick,
 }: {
   markers: MarkerElement[];
+  onClick: {
+    setMarker: (marker: MarkerElement) => void;
+    dispatchPanels: Dispatch<Panel>;
+  };
 }): ReactElement {
+  const { setMarker, dispatchPanels } = onClick;
+
   return (
     <>
       {markers.map((marker: MarkerElement) => (
@@ -26,6 +35,12 @@ export default function MarkerList({
           key={marker.id}
           position={marker.position}
           icon={customIcon(marker.category)}
+          eventHandlers={{
+            click: () => {
+              setMarker(marker);
+              dispatchPanels(Panel.MARKER);
+            },
+          }}
         ></Marker>
       ))}
     </>
