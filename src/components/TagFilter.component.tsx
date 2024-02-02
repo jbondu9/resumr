@@ -1,14 +1,18 @@
 import classNames from "classnames";
-import { ReactElement } from "react";
+import { Dispatch, ReactElement } from "react";
 
+import { FilterTypeAction } from "../enums/FilterTypeAction.enum";
 import { Tag } from "../enums/Tag.enum";
+import { ActionFilters } from "../types/ActionFilters.type";
 
 export function TagFilter({
   tag,
+  dispatch,
   amount,
   active = true,
 }: {
   tag: Tag;
+  dispatch: Dispatch<ActionFilters>;
   amount?: number;
   active?: boolean;
 }): ReactElement {
@@ -26,7 +30,16 @@ export function TagFilter({
     );
 
   return (
-    <button type="button" className={buttonClass(tagElement)}>
+    <button
+      type="button"
+      className={buttonClass(tagElement)}
+      onClick={() =>
+        dispatch({
+          type: FilterTypeAction.TOGGLE_TAG_FILTER,
+          selectedFilter: tag,
+        })
+      }
+    >
       <span className={spanClass(tagElement)}>{amount}</span>
       {tagName(tagElement)}
     </button>

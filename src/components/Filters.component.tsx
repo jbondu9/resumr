@@ -1,7 +1,7 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { ReactElement } from "react";
+import { Dispatch, ReactElement } from "react";
 
 import { CategoryFilter } from "./CategoryFilter.component";
 import { TagFilter } from "./TagFilter.component";
@@ -9,8 +9,16 @@ import { TagFilter } from "./TagFilter.component";
 import { Markers } from "../constants/Markers.constant";
 import { Category } from "../enums/Category.enum";
 import { Tag } from "../enums/Tag.enum";
+import { ActionFilters } from "../types/ActionFilters.type";
+import { SelectedFilters } from "../types/SelectedFilters.type";
 
-export default function Filters(): ReactElement {
+export default function Filters({
+  filters,
+  dispatch,
+}: {
+  filters: SelectedFilters;
+  dispatch: Dispatch<ActionFilters>;
+}): ReactElement {
   const categories = Markers.map((m) => m.category).reduce<{
     [key in Category]?: number;
   }>((d, c) => {
@@ -53,7 +61,12 @@ export default function Filters(): ReactElement {
               <ul className="mb-4 mr-3">
                 {Object.entries(categories).map((e) => (
                   <li key={e[0]} className="mb-1">
-                    <CategoryFilter category={e[0] as Category} amount={e[1]} />
+                    <CategoryFilter
+                      category={e[0] as Category}
+                      dispatch={dispatch}
+                      amount={e[1]}
+                      active={isActiveCat(e[0] as Category, filters.categories)}
+                    />
                   </li>
                 ))}
               </ul>
@@ -63,7 +76,12 @@ export default function Filters(): ReactElement {
               <ul className="mr-3">
                 {Object.entries(tags).map((e) => (
                   <li key={e[0]} className="mb-1">
-                    <TagFilter tag={e[0] as Tag} amount={e[1]} />
+                    <TagFilter
+                      tag={e[0] as Tag}
+                      dispatch={dispatch}
+                      amount={e[1]}
+                      active={isActiveTag(e[0] as Tag, filters.tags)}
+                    />
                   </li>
                 ))}
               </ul>
@@ -74,3 +92,9 @@ export default function Filters(): ReactElement {
     </div>
   );
 }
+
+const isActiveCat = (category: Category, categories: Category[]): boolean =>
+  categories.length === 0 || categories.includes(category);
+
+const isActiveTag = (tag: Tag, tags: Tag[]): boolean =>
+  tags.length === 0 || tags.includes(tag);

@@ -1,14 +1,18 @@
 import classNames from "classnames";
-import { ReactElement } from "react";
+import { Dispatch, ReactElement } from "react";
 
 import { Category } from "../enums/Category.enum";
+import { ActionFilters } from "../types/ActionFilters.type";
+import { FilterTypeAction } from "../enums/FilterTypeAction.enum";
 
 export function CategoryFilter({
   category,
+  dispatch,
   amount,
   active = true,
 }: {
   category: Category;
+  dispatch: Dispatch<ActionFilters>;
   amount?: number;
   active?: boolean;
 }): ReactElement {
@@ -36,7 +40,16 @@ export function CategoryFilter({
     );
 
   return (
-    <button type="button" className={buttonClass(categoryElement)}>
+    <button
+      type="button"
+      className={buttonClass(categoryElement)}
+      onClick={() =>
+        dispatch({
+          type: FilterTypeAction.TOGGLE_CAT_FILTER,
+          selectedFilter: category,
+        })
+      }
+    >
       <span className={spanClass(categoryElement)}>{amount}</span>
       {categoryName(categoryElement)}
     </button>
