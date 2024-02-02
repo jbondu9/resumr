@@ -57,7 +57,7 @@ export const Activities: MarkerElement[] = [
     category: Category.ACTIVITY,
     title: "MINT cucina fresca",
     description:
-      "What a place! If you're ever in Polignana a Mare, I can't" +
+      "What a place! If you're ever in Polignana a Mare, I can't " +
       "recommend this place enough. The food is mainly vegetarian" +
       " and there are vegan options too, but what a taste!",
     tags: [Tag.RESTAURANT],
