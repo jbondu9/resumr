@@ -68,7 +68,7 @@ const getIcon = (category: Category): CustomIcon => {
       };
     }
     default: {
-      throw new Error("CustomIcon Error: Unrecognized category");
+      throw new Error("getIcon Error: Unrecognized category");
     }
   }
 };
