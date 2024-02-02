@@ -14,7 +14,7 @@ export const filterMarkers = (
   }
   if (tags.length > 0) {
     filteredMarkers = filteredMarkers.filter(
-      (m) => m.tags.length > 0 && m.tags.every((t) => tags.includes(t)),
+      (m) => m.tags.length > 0 && tags.every((t) => m.tags.includes(t)),
     );
   }
   return filteredMarkers;
