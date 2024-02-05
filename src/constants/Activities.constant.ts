@@ -62,4 +62,25 @@ export const Activities: MarkerElement[] = [
       " and there are vegan options too, but all dishes are excellent!",
     tags: [Tag.RESTAURANT],
   },
+  {
+    id: "1f807e66-e44b-49b4-846c-c09f3682d96d",
+    position: [45.34097225908728, 0.5546924608361393],
+    category: Category.ACTIVITY,
+    title: "La Forge du Boulou",
+    description:
+      "My first outdoor climbing experience. La Forge du Boulou is a" +
+      " very good site with a good variety of routes. Mind you, it's" +
+      " best to go in the morning in high summer, otherwise it gets " +
+      "too hot in the afternoon.",
+    tags: [Tag.CLIMBING],
+  },
+  {
+    id: "fb76c533-3122-4238-bf2f-a81c3e709027",
+    position: [42.69250867674658, -0.03485323434805447],
+    category: Category.ACTIVITY,
+    title: "La Brèche de Roland",
+    description:
+      "A mythical hike from which I climbed my first 3000m: the Taillon peak!",
+    tags: [Tag.HIKING],
+  },
 ];
