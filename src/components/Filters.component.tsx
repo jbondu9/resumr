@@ -30,6 +30,8 @@ export default function Filters({
 }): ReactElement {
   const { dispatchFilters, dispatchPanels, setMarker } = dispatcher;
 
+  const totalMarkers = Markers.length;
+
   const categories = Markers.map((m) => m.category).reduce<{
     [key in Category]?: number;
   }>((d, c) => {
@@ -72,7 +74,7 @@ export default function Filters({
       <div className="h-screen border-r border-r-amber-400">
         <div className="h-full bg-white py-3 pl-3">
           <div className="flex h-full flex-col overflow-hidden">
-            <h1 className="mb-4 text-base font-bold">12 Items</h1>
+            <h1 className="mb-4 text-base font-bold">{totalMarkers} Items</h1>
             <div className="overflow-y-auto text-sm">
               <h3 className="mb-2 mr-3 border-b border-neutral-400 pb-1 uppercase text-neutral-400">
                 Categories ({Object.keys(categories).length})
