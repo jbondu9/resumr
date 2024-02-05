@@ -51,7 +51,7 @@ export default function MarkerDetails({
               )}
             </div>
           </div>
-          <div className="mt-4 overflow-x-auto border-t border-neutral-400 text-sm md:mr-3">
+          <div className="mt-4 overflow-y-auto border-t border-neutral-400 text-sm md:mr-3">
             <p className="mt-2 italic">{marker.description}</p>
             {marker.tags.length > 0 && (
               <div className="mt-2 text-xs">
