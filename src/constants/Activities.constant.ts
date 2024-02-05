@@ -17,7 +17,7 @@ export const Activities: MarkerElement[] = [
     category: Category.ACTIVITY,
     title: "La Ruta de Pedra en Sec",
     description:
-      "My first GR! Now I know why it is considered one of the most beautiful GRs in Europe.",
+      "My first GR! Now I know why it is considered as one of the most beautiful GRs in Europe.",
     tags: [Tag.HIKING],
   },
   {
@@ -36,8 +36,8 @@ export const Activities: MarkerElement[] = [
     category: Category.ACTIVITY,
     title: "Delhi Bazaar",
     description:
-      "My favorite Indian kitchen in Paris! A subtle blend of " +
-      "tradition and modernity in a tastefully decorated setting.",
+      "My favorite Indian kitchen in Paris! A subtle mix of " +
+      "tradition and modernity in a very well decorated restaurant.",
     tags: [Tag.RESTAURANT],
   },
   {
@@ -57,9 +57,9 @@ export const Activities: MarkerElement[] = [
     category: Category.ACTIVITY,
     title: "MINT cucina fresca",
     description:
-      "What a place! If you're ever in Polignana a Mare, I can't " +
+      "What a place! If you're in Polignano a Mare, I can't " +
       "recommend this place enough. The food is mainly vegetarian" +
-      " and there are vegan options too, but what a taste!",
+      " and there are vegan options too, but all dishes are excellent!",
     tags: [Tag.RESTAURANT],
   },
 ];

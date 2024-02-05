@@ -12,7 +12,7 @@ export const Career: MarkerElement[] = [
     description:
       "It's definitely the place that launched me into the dev. I had the opportunity" +
       " to join the Tech team and hold a fullstack developer role combined with a data" +
-      " developer role for more than two years. I developed many features on the " +
+      " engineer role for more than two years. I developed many features on the " +
       "organization's main project and rebuilt the stack as a modern data stack with the" +
       " help of my former CTO. The greatest experience of my young career so far!",
     startDate: new Date(2021, 5, 1),
@@ -64,7 +64,7 @@ export const Career: MarkerElement[] = [
       "I started a PhD in AI and RADAR signal processing after engineering school, " +
       "but dropped out after just one year. I didn't feel comfortable in the role " +
       "and I think I hadn't prepared myself well enough to do it properly. Today, " +
-      "I have no regrets, as it taught me a lot. Publication: Bondu, J., Grivel," +
+      "I have no regrets, as it taught me a lot.\n\nPublication: Bondu, J., Grivel," +
       " E., Giremus, A., Legrand, P., Corretja, V. & Pommier, M. (2020, August). " +
       "Sea Target Classification Based On A Priori Motion Model. In 2020 28th European" +
       " Signal Processing Conference (EUSIPCO) (pp. 2478-2482). IEEE.",
@@ -131,9 +131,9 @@ export const Career: MarkerElement[] = [
     title: "Research engineer intern",
     subtitle: "Malaviya National Institute of Technology",
     description:
-      "My first internship as a research engineer. It was difficult because of the subject " +
-      "matter, but also because of getting used to the Indian work culture. Publication:" +
-      " Bondu, J., Mishra, A., Laxmi, V., & Gaur, M. S. (2017, October). Flooding In Secure" +
+      "My first internship as a research engineer. It was difficult because of the subject, " +
+      " but also because of getting used to the Indian work culture.\n\nPublication: Bondu," +
+      " J., Mishra, A., Laxmi, V., & Gaur, M. S. (2017, October). Flooding In Secure" +
       " Wireless Sensor Networks: Student Contribution. In Proceedings of the 10th " +
       "International Conference on Security of Information and Networks (pp. 151-156).",
     startDate: new Date(2018, 4, 1),

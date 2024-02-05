@@ -25,7 +25,7 @@ export const Education: MarkerElement[] = [
     description:
       "I graduated with honors in telecommunications engineering, with a " +
       "specialization in signal and image processing. But what I enjoyed the" +
-      " most was there was the hip-hop association, with which I had a lot of fun.",
+      " most was the hip-hop association, with which I had a lot of fun.",
     startDate: new Date(2015, 8, 1),
     endDate: new Date(2019, 8, 1),
     tags: [Tag.MATLAB, Tag.C, Tag.JAVA],
@@ -38,7 +38,7 @@ export const Education: MarkerElement[] = [
     subtitle: "Lycée Chaptal",
     description:
       "That was hard! A 2-year intensive math and physics course in preparation" +
-      " for the selective entrance examination to French engineering schools",
+      " for the selective entrance examination to French engineering schools.",
     startDate: new Date(2013, 8, 1),
     endDate: new Date(2015, 5, 1),
     tags: [Tag.PYTHON],

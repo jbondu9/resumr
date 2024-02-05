@@ -65,8 +65,7 @@ export default function About({
                 </p>
                 <p>
                   If you're looking for someone motivated, eager to learn and
-                  committed to his work, feel free to contact me to see if can
-                  work together.
+                  committed to his work, feel free to contact me.
                 </p>
                 <p>
                   On top of that, I'm a runner, a hiker and a rock climber
