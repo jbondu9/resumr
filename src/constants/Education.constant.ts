@@ -12,8 +12,8 @@ export const Education: MarkerElement[] = [
     description:
       "I wanted to try to get a double degree from a University" +
       " in Canada, but I had to give up after two semesters.",
-    startDate: new Date(2018, 8, 1),
-    endDate: new Date(2019, 8, 1),
+    startDate: new Date(2017, 8, 1),
+    endDate: new Date(2018, 3, 1),
     tags: [Tag.MATLAB],
   },
   {
