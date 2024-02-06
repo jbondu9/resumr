@@ -71,7 +71,7 @@ export default function Filters({
           <FontAwesomeIcon icon={faBars} className="size-5" />
         )}
       </button>
-      <div className="h-screen border-r border-r-amber-400">
+      <div className="border-r border-r-amber-400" id="filter-layer">
         <div className="h-full bg-white py-3 pl-3">
           <div className="flex h-full flex-col overflow-hidden">
             <h1 className="mb-4 text-base font-bold">{totalMarkers} Items</h1>

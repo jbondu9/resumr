@@ -14,3 +14,9 @@
 #filter-control {
   transform: translateX(calc(100% - 1px));
 }
+
+#about-layer,
+#filter-layer,
+#marker-details-layer {
+  height: calc(100vh - 40px);
+}

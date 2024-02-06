@@ -2,7 +2,7 @@ import { Panel } from "../enums/Panel.enum";
 import { ActivePanels } from "../types/ActivePanels.type";
 
 export const initialPanels: ActivePanels = {
-  aboutPanel: true,
+  aboutPanel: false,
   filterPanel: false,
   makerPanel: false,
 };
@@ -34,11 +34,7 @@ export const panelsReducer = (
       };
     }
     default: {
-      return {
-        aboutPanel: false,
-        filterPanel: false,
-        makerPanel: false,
-      };
+      return initialPanels;
     }
   }
 };

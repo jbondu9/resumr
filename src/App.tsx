@@ -18,6 +18,7 @@ import { filtersReducer, initialFilters } from "./reducers/filters.reducer";
 import { initialPanels, panelsReducer } from "./reducers/panels.reducer";
 
 import { filterMarkers } from "./utils/filterMarkers";
+import TopBar from "./components/TopBar.component";
 
 export default function App() {
   const [marker, setMarker] = useState<MarkerElement | null>(null);
@@ -33,12 +34,12 @@ export default function App() {
   markers = filterMarkers(markers, filters);
 
   const filtersClass = classNames(
-    "absolute left-0 top-0 z-[1000] w-3/5 transition-transform md:w-72 md:translate-x-0",
+    "absolute left-0 top-10 z-[1000] w-3/5 transition-transform md:w-72 md:translate-x-0",
     { "-translate-x-full": !panels.filterPanel },
   );
 
   const aboutClass = classNames(
-    "absolute right-0 top-0 z-[1000] w-3/5 transition-transform md:w-72",
+    "absolute right-0 top-10 z-[1000] w-3/5 transition-transform md:w-72",
     { "translate-x-full": !panels.aboutPanel },
   );
 
@@ -62,12 +63,13 @@ export default function App() {
   }, [marker]);
 
   const markerDetailsClass = classNames(
-    "absolute bottom-0 right-0 z-[1000] w-full transition-transform md:top-0 md:w-72 md:translate-y-0",
+    "absolute bottom-0 right-0 z-[1000] w-full transition-transform md:top-10 md:w-72 md:translate-y-0",
     size,
   );
 
   return (
     <main className="relative h-screen w-screen overflow-hidden">
+      <TopBar />
       <div className={filtersClass}>
         <Filters
           filters={filters}
@@ -75,7 +77,7 @@ export default function App() {
           dispatcher={{ dispatchFilters, dispatchPanels, setMarker }}
         />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 top-0">
+      <div className="absolute bottom-0 left-0 right-0 top-10">
         <Map onClick={{ setMarker, dispatchPanels }}>
           <MarkerList
             markers={markers}

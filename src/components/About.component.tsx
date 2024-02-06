@@ -37,7 +37,7 @@ export default function About({
           <FontAwesomeIcon icon={faUser} className="size-5" />
         )}
       </button>
-      <div className="h-screen border-l border-l-amber-400">
+      <div className="border-l border-l-amber-400" id="about-layer">
         <div className="h-full bg-white py-3 pl-3">
           <div className="flex h-full flex-col overflow-hidden">
             <div className="mb-4 flex shrink-0 flex-row items-center">
