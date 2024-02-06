@@ -58,10 +58,10 @@ export default function About({
               <div className="mr-3 space-y-2 italic">
                 <p>Hi!</p>
                 <p>
-                  My name is Jimmy and I'm a fullstack web and data engineer.
-                  Keen on building impactful softwares that empower people, I'm
-                  looking for a new opportunity where high tech could serve
-                  people who work day-to-day to change our society.
+                  My name is Jimmy and I'm a full-stack developer and data
+                  engineer. Keen on building impactful softwares that empower
+                  people, I'm looking for a new opportunity where high tech
+                  could serve people who work day-to-day to change our society.
                 </p>
                 <p>
                   If you're looking for someone motivated, eager to learn and
