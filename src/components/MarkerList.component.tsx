@@ -59,9 +59,11 @@ const customIcon = (category: Category): DivIcon => {
   return divIcon({
     html: renderToString(
       <div
-        className={`${bgColor} flex size-6 -translate-x-1 -translate-y-1 items-center justify-center rounded-full text-white shadow-md outline outline-2 outline-white`}
+        className={`${bgColor} flex size-8 -translate-x-1 -translate-y-1 items-center justify-center rounded-full border-[3px] border-white text-white shadow-md`}
       >
-        {icon}
+        <div className="flex h-3/4 w-3/4 items-center justify-center">
+          {icon}
+        </div>
       </div>,
     ),
   });
@@ -69,22 +71,24 @@ const customIcon = (category: Category): DivIcon => {
 
 // This function must be present for Tailwind to interpret the background color correctly
 const getIcon = (category: Category): CustomIcon => {
+  const iconClass = "size-4";
+
   switch (category) {
     case Category.ACTIVITY: {
       return {
-        icon: <FontAwesomeIcon icon={faHashtag} className="size-4" />,
+        icon: <FontAwesomeIcon icon={faHashtag} className={iconClass} />,
         bgColor: "bg-green-400",
       };
     }
     case Category.EDUCATION: {
       return {
-        icon: <FontAwesomeIcon icon={faGraduationCap} className="size-4" />,
+        icon: <FontAwesomeIcon icon={faGraduationCap} className={iconClass} />,
         bgColor: "bg-blue-400",
       };
     }
     case Category.WORK: {
       return {
-        icon: <FontAwesomeIcon icon={faBriefcase} className="size-4" />,
+        icon: <FontAwesomeIcon icon={faBriefcase} className={iconClass} />,
         bgColor: "bg-orange-400",
       };
     }
@@ -97,7 +101,7 @@ const getIcon = (category: Category): CustomIcon => {
 function customClusterIcon(cluster: MarkerCluster): DivIcon {
   return divIcon({
     html: renderToString(
-      <div className="flex size-8 -translate-x-2 -translate-y-2 items-center justify-center rounded-full bg-amber-400 opacity-80">
+      <div className="flex size-9 -translate-x-2 -translate-y-2 items-center justify-center rounded-full bg-amber-400 opacity-80 shadow-sm">
         <div className="flex h-3/4 w-3/4 items-center justify-center rounded-full bg-amber-400 opacity-90">
           <span className="bg-amber-400 text-base font-semibold leading-none text-white">
             {cluster.getChildCount()}
