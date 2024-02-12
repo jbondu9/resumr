@@ -7,6 +7,11 @@
   display: none;
 }
 
+div.leaflet-div-icon {
+  background: transparent;
+  border: 0;
+}
+
 #about-control {
   transform: translateX(calc(-100% + 1px));
 }

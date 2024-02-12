@@ -5,10 +5,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { DivIcon, divIcon } from "leaflet";
+import { DivIcon, MarkerCluster, divIcon } from "leaflet";
 import { Dispatch, ReactElement } from "react";
 import { renderToString } from "react-dom/server";
 import { Marker } from "react-leaflet";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 import { Category } from "../enums/Category.enum";
 import { Panel } from "../enums/Panel.enum";
@@ -23,13 +24,18 @@ export default function MarkerList({
   markers: MarkerElement[];
   onClick: {
     setMarker: (marker: MarkerElement) => void;
-    dispatchPanels: Dispatch<Panel>;
+    dispatchPanels: Dispatch<Panel | null>;
   };
 }): ReactElement {
   const { setMarker, dispatchPanels } = onClick;
 
   return (
-    <>
+    <MarkerClusterGroup
+      chunkedLoading
+      showCoverageOnHover={false}
+      iconCreateFunction={customClusterIcon}
+      onClick={() => dispatchPanels(null)}
+    >
       {markers.map((marker: MarkerElement) => (
         <Marker
           key={marker.id}
@@ -43,7 +49,7 @@ export default function MarkerList({
           }}
         ></Marker>
       ))}
-    </>
+    </MarkerClusterGroup>
   );
 }
 
@@ -87,3 +93,17 @@ const getIcon = (category: Category): CustomIcon => {
     }
   }
 };
+
+function customClusterIcon(cluster: MarkerCluster): DivIcon {
+  return divIcon({
+    html: renderToString(
+      <div className="flex size-8 -translate-x-2 -translate-y-2 items-center justify-center rounded-full bg-amber-400 opacity-80">
+        <div className="flex h-3/4 w-3/4 items-center justify-center rounded-full bg-amber-400 opacity-90">
+          <span className="bg-amber-400 text-base font-semibold leading-none text-white">
+            {cluster.getChildCount()}
+          </span>
+        </div>
+      </div>,
+    ),
+  });
+}
