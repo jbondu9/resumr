@@ -65,11 +65,13 @@ export default function Filters({
           setMarker(null);
         }}
       >
-        {active ? (
-          <FontAwesomeIcon icon={faXmark} className="size-5" />
-        ) : (
-          <FontAwesomeIcon icon={faBars} className="size-5" />
-        )}
+        <div className="flex items-center justify-center">
+          {active ? (
+            <FontAwesomeIcon icon={faXmark} className="size-5" />
+          ) : (
+            <FontAwesomeIcon icon={faBars} className="size-5" />
+          )}
+        </div>
       </button>
       <div className="border-r border-r-amber-400" id="filter-layer">
         <div className="h-full bg-white py-3 pl-3">

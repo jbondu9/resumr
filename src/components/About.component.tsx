@@ -31,11 +31,13 @@ export default function About({
           setMarker(null);
         }}
       >
-        {active ? (
-          <FontAwesomeIcon icon={faXmark} className="size-5" />
-        ) : (
-          <FontAwesomeIcon icon={faUser} className="size-5" />
-        )}
+        <div className="flex items-center justify-center">
+          {active ? (
+            <FontAwesomeIcon icon={faXmark} className="size-5" />
+          ) : (
+            <FontAwesomeIcon icon={faUser} className="size-5" />
+          )}
+        </div>
       </button>
       <div className="border-l border-l-amber-400" id="about-layer">
         <div className="h-full bg-white py-3 pl-3">
