@@ -39,6 +39,7 @@ export default function Map({
       scrollWheelZoom={true}
       minZoom={3}
       maxZoom={16}
+      worldCopyJump={true}
     >
       <MapClickHandler setMarker={setMarker} dispatchPanels={dispatchPanels} />
       <TileLayer
