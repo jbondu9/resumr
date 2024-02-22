@@ -14,6 +14,7 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { Category } from "../enums/Category.enum";
 import { Panel } from "../enums/Panel.enum";
 
+import { ActionPanels } from "../types/ActionPanels.type";
 import { CustomIcon } from "../types/CustomIcon.type";
 import { MarkerElement } from "../types/MarkerElement.type";
 
@@ -24,7 +25,7 @@ export default function MarkerList({
   markers: MarkerElement[];
   onClick: {
     setMarker: (marker: MarkerElement) => void;
-    dispatchPanels: Dispatch<Panel | null>;
+    dispatchPanels: Dispatch<ActionPanels>;
   };
 }): ReactElement {
   const { setMarker, dispatchPanels } = onClick;
@@ -34,7 +35,7 @@ export default function MarkerList({
       chunkedLoading
       showCoverageOnHover={false}
       iconCreateFunction={customClusterIcon}
-      onClick={() => dispatchPanels(null)}
+      onClick={() => dispatchPanels({ markerId: "", panel: null })}
     >
       {markers.map((marker: MarkerElement) => (
         <Marker
@@ -44,7 +45,7 @@ export default function MarkerList({
           eventHandlers={{
             click: () => {
               setMarker(marker);
-              dispatchPanels(Panel.MARKER);
+              dispatchPanels({ markerId: marker.id, panel: Panel.MARKER });
             },
           }}
         ></Marker>

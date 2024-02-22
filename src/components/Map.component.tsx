@@ -3,17 +3,16 @@ import "leaflet/dist/leaflet.css";
 import { Dispatch, ReactElement } from "react";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 
+import { ActionPanels } from "../types/ActionPanels.type";
+
 const MapClickHandler = ({
-  setMarker,
   dispatchPanels,
 }: {
-  setMarker: (marker: null) => void;
-  dispatchPanels: Dispatch<null>;
+  dispatchPanels: Dispatch<ActionPanels>;
 }): null => {
   useMapEvents({
     click: () => {
-      setMarker(null);
-      dispatchPanels(null);
+      dispatchPanels({ markerId: "", panel: null });
     },
   });
 
@@ -24,14 +23,9 @@ export default function Map({
   onClick,
   children,
 }: {
-  onClick: {
-    setMarker: (marker: null) => void;
-    dispatchPanels: Dispatch<null>;
-  };
+  onClick: Dispatch<ActionPanels>;
   children?: ReactElement;
 }): ReactElement {
-  const { setMarker, dispatchPanels } = onClick;
-
   return (
     <MapContainer
       center={[46.3408, 2.6033]}
@@ -41,7 +35,7 @@ export default function Map({
       maxZoom={16}
       worldCopyJump={true}
     >
-      <MapClickHandler setMarker={setMarker} dispatchPanels={dispatchPanels} />
+      <MapClickHandler dispatchPanels={onClick} />
       <TileLayer
         attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -13,6 +13,7 @@ import { Panel } from "../enums/Panel.enum";
 import { Tag } from "../enums/Tag.enum";
 
 import { ActionFilters } from "../types/ActionFilters.type";
+import { ActionPanels } from "../types/ActionPanels.type";
 import { SelectedFilters } from "../types/SelectedFilters.type";
 
 export default function Filters({
@@ -24,11 +25,10 @@ export default function Filters({
   active: boolean;
   dispatcher: {
     dispatchFilters: Dispatch<ActionFilters>;
-    dispatchPanels: Dispatch<Panel>;
-    setMarker: (marker: null) => void;
+    dispatchPanels: Dispatch<ActionPanels>;
   };
 }): ReactElement {
-  const { dispatchFilters, dispatchPanels, setMarker } = dispatcher;
+  const { dispatchFilters, dispatchPanels } = dispatcher;
 
   const totalMarkers = Markers.length;
 
@@ -60,10 +60,7 @@ export default function Filters({
         type="button"
         id="filter-control"
         className="absolute right-0 top-5 rounded-r-full border-y border-l border-r border-y-amber-400 border-l-white border-r-amber-400 bg-white py-1 pl-1 pr-2 text-amber-400 md:hidden"
-        onClick={() => {
-          dispatchPanels(Panel.FILTERS);
-          setMarker(null);
-        }}
+        onClick={() => dispatchPanels({ markerId: "", panel: Panel.FILTERS })}
       >
         <div className="flex items-center justify-center">
           {active ? (

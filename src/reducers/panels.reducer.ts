@@ -1,7 +1,9 @@
 import { Panel } from "../enums/Panel.enum";
+import { ActionPanels } from "../types/ActionPanels.type";
 import { ActivePanels } from "../types/ActivePanels.type";
 
 export const initialPanels: ActivePanels = {
+  markerId: "",
   aboutPanel: false,
   filterPanel: false,
   makerPanel: false,
@@ -9,11 +11,14 @@ export const initialPanels: ActivePanels = {
 
 export const panelsReducer = (
   panels: ActivePanels,
-  panel: Panel | null,
+  action: ActionPanels,
 ): ActivePanels => {
+  const { markerId, panel } = action;
+
   switch (panel) {
     case Panel.ABOUT: {
       return {
+        markerId: "",
         aboutPanel: !panels.aboutPanel,
         filterPanel: false,
         makerPanel: false,
@@ -21,6 +26,7 @@ export const panelsReducer = (
     }
     case Panel.FILTERS: {
       return {
+        markerId: "",
         aboutPanel: false,
         filterPanel: !panels.filterPanel,
         makerPanel: false,
@@ -28,9 +34,10 @@ export const panelsReducer = (
     }
     case Panel.MARKER: {
       return {
+        markerId: markerId,
         aboutPanel: false,
         filterPanel: false,
-        makerPanel: !panels.makerPanel,
+        makerPanel: markerId === panels.markerId ? !panels.makerPanel : true,
       };
     }
     default: {

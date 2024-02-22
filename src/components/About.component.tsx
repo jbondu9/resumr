@@ -8,28 +8,22 @@ import imgUrl from "../assets/images/profile-pic.jpg";
 
 import { Panel } from "../enums/Panel.enum";
 
+import { ActionPanels } from "../types/ActionPanels.type";
+
 export default function About({
   active,
   dispatcher,
 }: {
   active: boolean;
-  dispatcher: {
-    dispatchPanels: Dispatch<Panel>;
-    setMarker: (marker: null) => void;
-  };
+  dispatcher: Dispatch<ActionPanels>;
 }): ReactElement {
-  const { dispatchPanels, setMarker } = dispatcher;
-
   return (
     <div className="relative">
       <button
         type="button"
         id="about-control"
         className="absolute left-0 top-5 rounded-l-full border-y border-l border-r border-y-amber-400 border-l-amber-400 border-r-white bg-white py-1 pl-2 pr-1 text-amber-400"
-        onClick={() => {
-          dispatchPanels(Panel.ABOUT);
-          setMarker(null);
-        }}
+        onClick={() => dispatcher({ markerId: "", panel: Panel.ABOUT })}
       >
         <div className="flex items-center justify-center">
           {active ? (
