@@ -228,8 +228,8 @@ const Tags: TagElement[] = [
   },
   {
     name: Tag.RESTAURANT,
-    color: "text-orange-200",
-    bgColor: "bg-orange-200",
+    color: "text-pink-800",
+    bgColor: "bg-pink-800",
     emoji: "🍽️",
   },
   {
