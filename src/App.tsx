@@ -9,6 +9,7 @@ import Filters from "./components/Filters.component";
 import Map from "./components/Map.component";
 import MarkerDetails from "./components/MarkerDetails.component";
 import MarkerList from "./components/MarkerList.component";
+import TopBar from "./components/TopBar.component";
 
 import { Markers } from "./constants/Markers.constant";
 
@@ -18,7 +19,6 @@ import { filtersReducer, initialFilters } from "./reducers/filters.reducer";
 import { initialPanels, panelsReducer } from "./reducers/panels.reducer";
 
 import { filterMarkers } from "./utils/filterMarkers";
-import TopBar from "./components/TopBar.component";
 
 export default function App() {
   const [filters, dispatchFilters] = useReducer(filtersReducer, initialFilters);

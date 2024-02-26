@@ -1,4 +1,5 @@
 import { Panel } from "../enums/Panel.enum";
+
 import { ActionPanels } from "../types/ActionPanels.type";
 import { ActivePanels } from "../types/ActivePanels.type";
 

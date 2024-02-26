@@ -10,6 +10,7 @@ import { ReactElement } from "react";
 import { TagBadge } from "./TagFilter.component";
 
 import { Category } from "../enums/Category.enum";
+
 import { CustomIcon } from "../types/CustomIcon.type";
 import { MarkerElement } from "../types/MarkerElement.type";
 

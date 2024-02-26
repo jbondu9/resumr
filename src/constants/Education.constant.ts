@@ -1,5 +1,6 @@
 import { Category } from "../enums/Category.enum";
 import { Tag } from "../enums/Tag.enum";
+
 import { MarkerElement } from "../types/MarkerElement.type";
 
 export const Education: MarkerElement[] = [

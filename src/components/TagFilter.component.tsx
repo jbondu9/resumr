@@ -3,6 +3,7 @@ import { Dispatch, ReactElement } from "react";
 
 import { FilterTypeAction } from "../enums/FilterTypeAction.enum";
 import { Tag } from "../enums/Tag.enum";
+
 import { ActionFilters } from "../types/ActionFilters.type";
 
 export function TagFilter({

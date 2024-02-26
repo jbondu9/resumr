@@ -2,8 +2,9 @@ import classNames from "classnames";
 import { Dispatch, ReactElement } from "react";
 
 import { Category } from "../enums/Category.enum";
-import { ActionFilters } from "../types/ActionFilters.type";
 import { FilterTypeAction } from "../enums/FilterTypeAction.enum";
+
+import { ActionFilters } from "../types/ActionFilters.type";
 
 export function CategoryFilter({
   category,
